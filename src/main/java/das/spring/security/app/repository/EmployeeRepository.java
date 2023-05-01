@@ -28,12 +28,12 @@ public class EmployeeRepository {
                 employee.getYoe(),
                 employee.getTech()
         };
-        logQuery(insertEmployeeQuery,params);
+        logQuery("insertEmployee",insertEmployeeQuery,params);
         return jdbcTemplate.update(insertEmployeeQuery, params);
     }
 
-    private void logQuery(String query, Object... params){
-        log.info("EmployeeRepository.insertEmployee => Statement: {}",query);
-        log.info("EmployeeRepository.insertEmployee => parameters: {}",params);
+    private void logQuery(String methodName,String query, Object... params){
+        log.info("EmployeeRepository.{} => Statement: {}",methodName, query);
+        log.info("EmployeeRepository.{} => parameters: {}",methodName,params);
     }
 }
